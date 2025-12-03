@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FF6B9D">
+    <meta name="description" content="Professional Math Tutoring - Expert guidance for Elementary through Calculus. In-person & online. Over a decade of teaching experience.">
+    <title>Professional Math Tutoring | Call +1 814 923 2001</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coral: #FF6B9D;
+            --coral-light: #FFB4D4;
+            --purple: #7B68EE;
+            --purple-light: #B8A9FF;
+            --teal: #00D9C0;
+            --teal-light: #6FFFF1;
+            --orange: #FF8A5B;
+            --yellow: #FFD93D;
+            --mint: #C7F9CC;
+            --lavender: #E4D4FF;
+            --peach: #FFE5D9;
+            --sky: #A8DADC;
+            --primary-dark: #2D3748;
+            --gray-text: #4A5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, 
+                #FFE5F4 0%, 
+                #E4D4FF 25%, 
+                #C7F9CC 50%, 
+                #A8DADC 75%, 
+                #FFE5D9 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            filter: blur(40px);
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 217, 192, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -250px;
+            left: -250px;
+            filter: blur(40px);
+        }
+
+        .flyer-container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 32px;
+            max-width: 950px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            overflow: hidden;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, 
+                var(--coral), 
+                var(--purple), 
+                var(--teal), 
+                var(--orange), 
+                var(--coral)) 1;
+            background-clip: padding-box;
+        }
+
+        .header {
+            background: linear-gradient(135deg, 
+                var(--coral) 0%, 
+                var(--purple) 50%, 
+                var(--teal) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '∑∫∞≈√×÷+=';
+            position: absolute;
+            font-size: 140px;
+            opacity: 0.08;
+            top: -30px;
+            right: 20px;
+            font-weight: 900;
+            letter-spacing: 10px;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, white, rgba(255, 255, 255, 0.9));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--coral), var(--purple), var(--teal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, var(--coral), var(--purple), var(--teal)) 1;
+            display: inline-block;
+            position: relative;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.9) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--coral), var(--purple), var(--teal));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(123, 104, 238, 0.25);
+        }
+
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .course-card:nth-child(1) { background: linear-gradient(135deg, var(--peach), white); }
+        .course-card:nth-child(2) { background: linear-gradient(135deg, var(--lavender), white); }
+        .course-card:nth-child(3) { background: linear-gradient(135deg, var(--mint), white); }
+        .course-card:nth-child(4) { background: linear-gradient(135deg, var(--sky), white); }
+        .course-card:nth-child(5) { background: linear-gradient(135deg, var(--coral-light), white); }
+        .course-card:nth-child(6) { background: linear-gradient(135deg, var(--purple-light), white); }
+
+        .course-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .course-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--gray-text);
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 20px;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.5));
+            border-radius: 16px;
+            border-left: 4px solid var(--teal);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item:hover {
+            background: linear-gradient(135deg, var(--teal-light), rgba(255, 255, 255, 0.9));
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 192, 0.2);
+            border-left-color: var(--purple);
+        }
+
+        .checkmark {
+            background: linear-gradient(135deg, var(--teal), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 1.08rem;
+            line-height: 1.7;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .why-choose {
+            background: linear-gradient(135deg, 
+                var(--yellow) 0%, 
+                var(--coral-light) 50%, 
+                var(--lavender) 100%);
+            padding: 40px;
+            border-radius: 24px;
+            border: 3px solid var(--orange);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 138, 91, 0.25);
+        }
+
+        .why-choose::before {
+            content: '⭐';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.08;
+            top: -50px;
+            right: -30px;
+        }
+
+        .why-choose .section-title {
+            color: var(--primary-dark);
+            border-image: linear-gradient(90deg, var(--orange), var(--coral)) 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.9));
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--orange);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, 
+                var(--purple) 0%, 
+                var(--coral) 50%, 
+                var(--orange) 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -125px;
+            right: -125px;
+        }
+
+        .contact-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phone-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.9));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--purple);
+        }
+
+        .phone-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-number:hover {
+            color: var(--yellow);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.95));
+            color: var(--purple);
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 3px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            background: var(--yellow);
+            color: var(--primary-dark);
+        }
+
+        .availability {
+            font-size: 1.2rem;
+            margin-top: 25px;
+            font-weight: 500;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: white;
+            margin: 0 auto 30px;
+            border-radius: 2px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .flyer-container {
+                border-radius: 24px;
+                margin: 0;
+            }
+
+            .header {
+                padding: 40px 25px;
+                border-radius: 24px 24px 0 0;
+            }
+
+            .header::before {
+                font-size: 80px;
+                right: 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: -1px;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+                letter-spacing: 0.5px;
+            }
+
+            .content {
+                padding: 35px 20px;
+            }
+
+            .section {
+                margin-bottom: 35px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+                padding-bottom: 10px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .course-card {
+                padding: 25px 20px;
+            }
+
+            .course-icon {
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+            }
+
+            .course-description {
+                font-size: 1rem;
+            }
+
+            .feature-item {
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .checkmark {
+                font-size: 1.3rem;
+            }
+
+            .feature-text {
+                font-size: 1rem;
+            }
+
+            .why-choose {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+
+            .contact-section {
+                padding: 35px 20px;
+            }
+
+            .contact-label {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .phone-display {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .phone-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .phone-number {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .btn {
+                padding: 16px 40px;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .availability {
+                font-size: 1rem;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 8px;
+            }
+
+            .flyer-container {
+                border-radius: 20px;
+            }
+
+            .header {
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 30px 18px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .course-card {
+                padding: 20px 18px;
+            }
+
+            .course-icon {
+                font-size: 2.2rem;
+            }
+
+            .course-title {
+                font-size: 1.05rem;
+            }
+
+            .course-description {
+                font-size: 0.95rem;
+            }
+
+            .feature-item {
+                padding: 14px;
+            }
+
+            .feature-text {
+                font-size: 0.95rem;
+            }
+
+            .why-choose {
+                padding: 25px 18px;
+            }
+
+            .contact-section {
+                padding: 30px 18px;
+            }
+
+            .phone-number {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .btn {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .flyer-container {
+                max-width: 850px;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+            .flyer-container {
+                max-width: 1100px;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Larger touch targets */
+            .btn {
+                min-height: 48px;
+                padding: 18px 45px;
+            }
+
+            .phone-number {
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .course-card {
+                /* Remove hover effects on touch devices */
+                transition: none;
+            }
+
+            .feature-item:active {
+                background: linear-gradient(135deg, var(--teal-light), rgba(255, 255, 255, 0.9));
+                transform: scale(0.98);
+            }
+
+            .btn:active {
+                transform: scale(0.95);
+            }
+
+            /* Disable animations that might cause performance issues */
+            .course-icon {
+                animation: none;
+            }
+
+            body::before,
+            body::after {
+                animation-duration: 20s;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .flyer-container {
+                border: 3px solid currentColor;
+            }
+
+            .course-card {
+                border: 2px solid currentColor;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .flyer-container {
+                background: rgba(30, 30, 30, 0.95);
+                color: #f0f0f0;
+            }
+
+            .course-card {
+                background: rgba(50, 50, 50, 0.8);
+            }
+
+            .course-title,
+            .feature-text {
+                color: #f0f0f0;
+            }
+
+            .course-description {
+                color: #d0d0d0;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .flyer-container {
+                box-shadow: none;
+                border: 2px solid #000;
+            }
+
+            .btn {
+                border: 2px solid #000;
+            }
+
+            body::before,
+            body::after,
+            .header::before,
+            .why-choose::before {
+                display: none;
+            }
+        }
+
+        /* Ensure text remains readable on all backgrounds */
+        @supports (mix-blend-mode: difference) {
+            .header h1,
+            .header .tagline {
+                position: relative;
+                z-index: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="header">
+            <h1>Professional Math Tutoring</h1>
+            <p class="tagline">Excellence in Mathematics Education</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Academic Subjects (Math Only – All Levels)</h2>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <span class="course-icon">➕</span>
+                        <h3 class="course-title">Elementary Mathematics</h3>
+                        <p class="course-description">Building strong foundations with number sense, problem-solving, and confidence.</p>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-icon">➗</span>
+                        <h3 class="course-title">Pre-Algebra & Algebra 1</h3>
+                        <p class="course-description">Step-by-step explanations, equation mastery, and skill-building for advanced math.</p>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-icon">✖️</span>
+                        <h3 class="course-title">Algebra 2</h3>
+                        <p class="course-description">Functions, graphing, polynomials, and strategic methods to boost accuracy and speed.</p>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-icon">📐</span>
+                        <h3 class="course-title">Pre-Calculus</h3>
+                        <p class="course-description">Trigonometry, advanced algebra, and essential preparation for Calculus success.</p>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-icon">🔢</span>
+                        <h3 class="course-title">Calculus AB & BC</h3>
+                        <p class="course-description">Limits, derivatives, integrals, applications, and AP exam readiness.</p>
+                    </div>
+
+                    <div class="course-card">
+                        <span class="course-icon">🏆</span>
+                        <h3 class="course-title">CP, Honors, & AP Math Courses</h3>
+                        <p class="course-description">Tailored support for all rigor levels with emphasis on conceptual understanding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Specialized Instruction</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Expert guidance with and without graphing calculators</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Strategies to solve complex problems intuitively</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Clear methods to improve accuracy, speed, and test performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-choose">
+                <span class="badge">🌟 Excellence Guaranteed</span>
+                <h2 class="section-title">Why Choose Me?</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Experienced math educator with over a decade of teaching & tutoring</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Personalized lessons matched to each student's goals and learning style</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Strong support for homework, test prep, and AP exam strategies</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Regular progress updates and practice plans for ongoing improvement</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✔️</span>
+                        <span class="feature-text">Supportive, patient, and encouraging environment where students feel confident</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <span class="contact-label">📌 Professional Math Tutoring Available</span>
+            <div class="divider"></div>
+            <p class="availability">In-Person & Online • Elementary through College-Prep</p>
+            
+            <div class="phone-display">
+                <div class="phone-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                </div>
+                <a href="tel:+18149232001" class="phone-number">+1 814 923 2001</a>
+            </div>
+            
+            <a href="tel:+18149232001" class="btn">Call Now to Schedule</a>
+        </div>
+    </div>
+</body>
+</html>
