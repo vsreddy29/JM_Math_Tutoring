@@ -374,6 +374,17 @@
             align-items: center;
             justify-content: center;
             gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .email-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             margin-bottom: 35px;
             flex-wrap: wrap;
             position: relative;
@@ -391,10 +402,27 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .email-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.9));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
         .phone-icon svg {
             width: 32px;
             height: 32px;
             fill: var(--purple);
+        }
+
+        .email-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--teal);
         }
 
         .phone-number {
@@ -407,7 +435,21 @@
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        .email-address {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .phone-number:hover {
+            color: var(--yellow);
+        }
+
+        .email-address:hover {
             color: var(--yellow);
         }
 
@@ -558,14 +600,29 @@
                 gap: 20px;
             }
 
+            .email-display {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .phone-icon {
                 width: 60px;
                 height: 60px;
             }
 
+            .email-icon {
+                width: 55px;
+                height: 55px;
+            }
+
             .phone-number {
                 font-size: 2rem;
                 letter-spacing: 2px;
+            }
+
+            .email-address {
+                font-size: 1.1rem;
+                letter-spacing: 0.3px;
             }
 
             .btn {
@@ -645,6 +702,12 @@
             .phone-number {
                 font-size: 1.6rem;
                 letter-spacing: 1px;
+            }
+
+            .email-address {
+                font-size: 1rem;
+                letter-spacing: 0.2px;
+                word-break: break-all;
             }
 
             .btn {
@@ -906,6 +969,15 @@
                     </svg>
                 </div>
                 <a href="tel:+18149232001" class="phone-number">+1 814 923 2001</a>
+            </div>
+
+            <div class="email-display">
+                <div class="email-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <a href="mailto:mamidala.jyotsna@gmail.com" class="email-address">mamidala.jyotsna@gmail.com</a>
             </div>
             
             <a href="tel:+18149232001" class="btn">Call Now to Schedule</a>
